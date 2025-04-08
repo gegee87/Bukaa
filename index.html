@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Google Akun</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 360px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #202124;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+    }
+    .btn {
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #1669c1;
+    }
+    .link {
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #70757a;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container" id="step1">
+  <img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png" alt="Google" class="logo" width="75">
+  <h2>Masuk</h2>
+  <input type="email" placeholder="Email atau ponsel" id="email">
+  <button class="btn" onclick="nextStep()">Berikutnya</button>
+  <div class="footer">Google</div>
+</div>
+
+<div class="container" id="step2" style="display:none">
+  <img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png" alt="Google" class="logo" width="75">
+  <h2>Masukkan sandi Anda</h2>
+  <input type="password" placeholder="Sandi" id="password">
+  <button class="btn" onclick="alert('Berhasil Login (Tampilan Palsu)')">Berikutnya</button>
+  <div class="footer">Google</div>
+</div>
+
+<script>
+  function nextStep(){
+    const email = document.getElementById('email').value;
+    if(email == ''){
+      alert('Masukkan email terlebih dahulu');
+    } else {
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
