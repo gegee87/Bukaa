@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari Sesuatu...</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 100px;
+}
+input, button {
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#hacking {
+    display: none;
+    color: lime;
+    font-size: 18px;
+    white-space: pre-wrap;
+    margin-top: 20px;
+}
+.flash {
+    animation: flash 0.2s infinite alternate;
+}
+@keyframes flash {
+    from {background-color: black;}
+    to {background-color: red;}
+}
+</style>
+</head>
+<body>
+<h1>Masukkan Sesuatu Untuk Dicari</h1>
+<input type="text" id="search" placeholder="Cari disini...">
+<br>
+<button onclick="startSearch()">Cari</button><div id="hacking"></div><audio id="audio" src="https://media.vocaroo.com/mp3/194ocuSMSWcp" preload="auto"></audio>
+
+<script>
+function startSearch() {
+    const input = document.getElementById('search').value;
+    if (input == "") {
+        alert("Masukkan dulu sesuatu!");
+        return;
+    }
+    document.querySelector('h1').innerText = 'Mencari...';
+    setTimeout(hackEffect, 3000);
+}
+
+function hackEffect() {
+    document.body.classList.add('flash');
+    document.getElementById('audio').play();
+    document.getElementById('hacking').style.display = 'block';
+    let teks = '';
+    let pesan = 'ACCESS GRANTED\nDATA DIAMBIL...\nMEMBUKA FILE RAHASIA...\nHACK BERHASIL!!!\nDATA KAMU SUDAH KAMI AMBIL!!!';
+
+    let i = 0;
+    let interval = setInterval(() => {
+        teks += pesan[i];
+        document.getElementById('hacking').innerText = teks;
+        i++;
+        if (i >= pesan.length) clearInterval(interval);
+    }, 100);
+}
+</script></body>
+</html>
